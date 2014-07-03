@@ -49,18 +49,21 @@
         ////////////////////////////////////////////////////////////////////////
         ////////////////////////////////////////////////////////////////////////
 
-       BABYLON.SceneLoader.Load("", "gymnocrinus.babylon", engine, function (scene) {
+        BABYLON.SceneLoader.Load("", "gymnocrinus.babylon", engine, function (scene) {
             // Wait for textures and shaders to be ready
             scene.executeWhenReady(function () {
-                // Attach camera to canvas inputs
-                scene.activeCamera = camera;
                 scene.clearColor = new BABYLON.Color4(0, 0, 0, 0);
-                console.log(scene);
+                scene.activeCamera = camera;
+                var center = new BABYLON.Vector3.Zero();
                 for (it in scene.meshes) {
                     scene.meshes[it].material = new BABYLON.StandardMaterial("material", scene);
                     //~ scene.meshes[it].material.wireframe = true;
                 }
 
+                camera.target.y += 5;
+                camera.target.z -= 8;
+                camera.alpha = Math.PI/2;
+                camera.radius = 40;
                 // Once the scene is loaded, just register a render loop to render it
                 engine.runRenderLoop(function() {
                     scene.render();
