@@ -57,21 +57,14 @@
                 for (it in scene.meshes) {
                     scene.meshes[it].material = new BABYLON.StandardMaterial("material", scene);
                     scene.meshes[it].material.specularColor = new BABYLON.Color4(0, 0, 0, 0);
-                    scene.meshes[it].material.diffuseTexture = new BABYLON.Texture(
-                        "whole_color.png",
-                        scene
-                    );
-                    //~ scene.meshes[it].material.wireframe = true;
                 }
-                console.log(scene.meshes);
-                //~ camera.target.y += 5;
-                //~ camera.target.z -= 8;
                 camera.alpha = Math.PI/2;
                 camera.radius = 40;
                 
                 // Light
                 var light = new BABYLON.HemisphericLight("Hemi0", new BABYLON.Vector3(0, 200, -200), scene);
-                light.intensity = 1;
+                light.intensity = 0.6;
+
                 // Once the scene is loaded, just register a render loop to render it
                 engine.runRenderLoop(function() {
                     scene.render();
