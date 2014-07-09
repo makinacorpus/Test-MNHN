@@ -19,10 +19,10 @@
 
     </style>
     <!-- JQuery-->
-    <script src="lib/jquery-1.10.2.js"></script>
+    <script src="../lib/jquery-1.10.2.js"></script>
     
     <!-- BABYLON-->
-    <script src="lib/babylon.1.12.js"></script>
+    <script src="../lib/babylon.1.12.js"></script>
 
 </head>
 
@@ -48,7 +48,7 @@
         ////////////////////////////////////////////////////////////////////////
         ////////////////////////////////////////////////////////////////////////
 
-        BABYLON.SceneLoader.Load("", "gymnocrinus.babylon", engine, function (scene) {
+        BABYLON.SceneLoader.Load("", "gymnocrinusTextured.babylon", engine, function (scene) {
             // Wait for textures and shaders to be ready
             scene.executeWhenReady(function () {
                 scene.clearColor = new BABYLON.Color4(0, 0, 0, 0);
