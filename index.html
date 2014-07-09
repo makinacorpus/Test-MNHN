@@ -54,15 +54,17 @@
                 scene.clearColor = new BABYLON.Color4(0, 0, 0, 0);
                 scene.activeCamera = camera;
                 var center = new BABYLON.Vector3.Zero();
+                var number = 0;
                 for (it in scene.meshes) {
                     scene.meshes[it].material = new BABYLON.StandardMaterial("material", scene);
                     scene.meshes[it].material.specularColor = new BABYLON.Color4(0, 0, 0, 0);
+                    number += scene.meshes[it].getTotalVertices();
                 }
                 camera.alpha = Math.PI/2;
                 camera.radius = 40;
                 
                 // Light
-                var light = new BABYLON.HemisphericLight("Hemi0", new BABYLON.Vector3(0, 200, -200), scene);
+                var light = new BABYLON.HemisphericLight("Hemi0", new BABYLON.Vector3(0, 0, 0), scene);
                 light.intensity = 0.6;
 
                 // Once the scene is loaded, just register a render loop to render it
